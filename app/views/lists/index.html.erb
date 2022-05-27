@@ -2,3 +2,5 @@
 <% @lists.each do |list| %>
 <%= link_to list.name, list_path(list) %>
 <% end %>
+
+<%= link_to 'Add a new list', new_list_path(@list) %>

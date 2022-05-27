@@ -27,7 +27,7 @@ user = JSON.parse(user_serialized)
 
 # Movie.create(title: user.title, overview: user.overview, poster_url: user.poster_path, rating: user.vote_average)
 # puts user.title
-results = user["results"].first(5)
+results = user["results"].first(10)
 
 movies = results.each do |result|
   Movie.create(title: result["title"], overview: result["overview"], poster_url: "https://image.tmdb.org/t/p/w500#{result["poster_path"]}", rating: result["vote_average"].to_f)

@@ -1,2 +1,15 @@
 
 <%= @list.name %>
+
+<% @list.bookmarks.each do |bookmark| %>
+<p>Title: <%= bookmark.movie.title %></p>
+<p>Overview: <%= bookmark.movie.overview %></p>
+<p>Image: <%= image_tag "#{bookmark.movie.poster_url}", alt: "Le Wagon", width: 200 %></p>
+<p>Rating: <%= bookmark.movie.rating %></p>
+<p><%= link_to 'Remove movie', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove?" } %></p>
+<% end %>
+
+<%= link_to "Add Movie to my list", new_list_bookmark_path(@list)  %>
+
+
+<%= link_to 'back to all', lists_path(@list) %>
